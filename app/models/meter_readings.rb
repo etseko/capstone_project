@@ -1,3 +1,3 @@
-class MeterReadingst <ActiveRecord::Base
+class MeterReadings <ActiveRecord::Base
 
 end
