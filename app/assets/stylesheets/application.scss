@@ -4,27 +4,40 @@ html{
   height:100%;
   position: relative;
 }
-
-a.navbar-brand{
-   font-family: Georgia, Times, "Times New Roman", serif;
-   font-weight: 700;
+.container-fluid{
+  a.navbar-brand{
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-weight: 700;
+  }
 }
 
 
-.navbar.navbar-expand-lg.navbar-light.bg-light{
+.navbar.navbar-expand-lg.navbar-light{
+    width:100%;
     position: relative;
-    background-color: #57e597 !important;
+    background-color: #57e597;
     top: 0;
 }
 
-.container-fluid{
-  padding:0;
+footer{
+  width:100%;
+  position: absolute;
+  bottom: 0px;
+  background-image: linear-gradient(#ffffff, #57e597);
+  //background-color: #57e597;
 }
 
+
 .container-fluid.charts{
-  background-color: #eae9e5;
+  //background-color: #eae8e4;
+  position: absolute;
+  top:30%;
+  height:270px;
+  background-image: radial-gradient(#eae8e4, #ffffff);
 }
 .container-fluid{
+  padding:0;
+  width:100%;
    h1{
      padding-left: 0.5em;
      padding-top: 2em;
