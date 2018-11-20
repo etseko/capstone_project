@@ -1,27 +1,38 @@
-.container-fluid
-  .nav.navbar.navbar-expand-lg.navbar-light
-    a.navbar-brand href="#" Kilo-what
-    button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
-      span.navbar-toggler-icon
-    div.collapse.navbar-collapse#navbarNavAltMarkup
-      .navbar-nav
-        a.nav-item.nav-link.active href="#" Home
-        a.nav-item.nav-link href="#" Appliances
-        a.nav-item.nav-link href="#" Meters
-        a.nav-item.nav-link href="#" Profile
-        a.nav-item.nav-link href="#" Throphies
-        a.nav-item.nav-link href="#" About
+head
+  <script type="text/javascript">
+  //<![CDATA[
+    (function() {
+      var initChart = function() {
+        var ctx = document.getElementById("chart-0");
+        var chart = new Chart(ctx, {
+          type: "Line",
+          data = { ... };
+          options = { ... };
+        });
+      };
 
+      if (typeof Chart !== "undefined" && Chart !== null) {
+        initChart();
+      }
+      else {
+        if (window.addEventListener) {
+          window.addEventListener("load", initChart, false);
+        }
+        else if (window.attachEvent) {
+          window.attachEvent("onload", initChart);
+        }
+      }
+    })();
+  //]]>
+  </script>
+
+body
+  =render 'layouts/nav'
 .container-fluid
   <h1> Hello,<h3> Eleana! </h3> </h1>
   h5 Today is the
     #{@day} <!-- change this later to words -->
 
 .container-fluid.charts
-  h1 hi
-
-
-footer.text-muted
-  .container-fluid
-    p Kilo-what 2018
-    p.copyright Eleana Tsekoglou copyright
+  canvas id="chart-0" class="chart" width=400 height=400
+= render 'layouts/footer'
