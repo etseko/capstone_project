@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #get 'home/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root :to => 'home#index'
+  get 'static_pages/about'
+  get '/index', to: 'home#index'
 end
