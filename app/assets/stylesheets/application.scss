@@ -1,15 +1,24 @@
 @import "bootstrap";
 
-html{
+html, body{
   height:100%;
   position: relative;
 }
+
 .container-fluid{
+  position:block;
   a.navbar-brand{
     font-family: Georgia, Times, "Times New Roman", serif;
     font-weight: 700;
   }
 }
+
+a.btn.btn-primary.add{
+    float:right;
+    margin-bottom: 1em;
+    background-color: #57e597;
+}
+
 
 
 .navbar.navbar-expand-lg.navbar-light{
@@ -19,9 +28,13 @@ html{
     top: 0;
 }
 
+div.before-footer{
+  height:10em;
+}
+
 footer{
   width:100%;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   background-image: linear-gradient(#ffffff, #57e597);
   //background-color: #57e597;
