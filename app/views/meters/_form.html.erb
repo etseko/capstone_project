@@ -1,0 +1,9 @@
+<%= form_for( :meter) do |m| %> <!-- kanonika prepi na en @meter alla en to piannei BUG -->
+    <%= m.label :start_date %>
+    <%= m.text_field :start_date%>
+    <%= m.label :end_date %>
+    <%= m.text_field :end_date%>
+    <%= m.label :readings %>
+    <%= m.text_field :readings%>
+    <%= m.submit "Create" %>
+<% end %>

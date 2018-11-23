@@ -1,0 +1,38 @@
+<!-- TODO Change this lates to slim again
+== yield
+= t('.hello')
+- 3.times do |i| -->
+<%= render 'layouts/nav'%>
+<div class+"conntainer-fluid">
+  <h1> Meters History</h1>
+  <a class="btn btn-primary add" href="/meters/new" role="button">Add meters</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"> Number </th>
+        <th scope="col"> Start Date </th>
+        <th scope="col"> End Date </th>
+        <th scope="col"> Meter Readings </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @meters.each do |meter| %>
+      <tr scope="row">
+        <td>
+          <%= meter.id %>
+        </td>
+        <td>
+          <%= meter.start_date %>
+        </td>
+        <td>
+          <%= meter.end_date %>
+        </td>
+        <td>
+          <%= meter.readings %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= render 'layouts/footer' %>
