@@ -17,6 +17,7 @@ a.btn.btn-primary.add{
     float:right;
     margin-bottom: 1em;
     background-color: #57e597;
+    border-color: #57e597;
 }
 
 
@@ -31,11 +32,10 @@ a.btn.btn-primary.add{
 div.before-footer{
   height:10em;
 }
-
 footer{
   width:100%;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   background-image: linear-gradient(#ffffff, #57e597);
   //background-color: #57e597;
 }
