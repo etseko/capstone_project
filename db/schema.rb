@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_164217) do
+ActiveRecord::Schema.define(version: 2018_12_01_213726) do
+
+  create_table "appliances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "model"
+    t.integer "wattage_label"
+    t.time "usage_hourspday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "brand"
+    t.string "rating"
+    t.string "category"
+  end
 
   create_table "meter_readings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "start_date"
