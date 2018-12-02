@@ -1,0 +1,33 @@
+= form_for :appliance do |f|
+  - if @appliance.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@appliance.errors.count, "error")} prohibited this appliance from being saved:"
+      ul
+        - @appliance.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :category
+    = f.text_field :category
+
+  .field
+    = f.label :brand
+    = f.text_field :brand
+
+  .field
+    = f.label :model
+    = f.text_field :model
+
+  .field
+    = f.label :wattage_label
+    = f.number_field :wattage_label
+
+  .field
+    = f.label :usage_hourspday
+    = f.time_select :usage_hourspday
+
+  .field
+    = f.label :rating
+    = f.text_field :rating
+
+  .actions = f.submit

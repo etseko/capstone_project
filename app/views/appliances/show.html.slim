@@ -1,0 +1,28 @@
+=render 'layouts/nav'
+
+.container-fluid.top
+  h1 Your Appliances
+  a.btn.btn-primary.add href="/meters/new" role="button" New appliance
+  table.table
+    thead
+      tr
+        th scope="col" number
+        th scope="col" Type
+        th scope="col" Brand
+        th scope="col" Model
+        th scope="col" Wattage
+        th scope="col" Approx. Usage Hours
+        th scope="col" Eficientcy Rating
+    thead
+    tbody
+      - @appliances.each do |a|
+        tr scope="row"
+          td =a.id
+          td =a.category
+          td =a.brand
+          td =a.model
+          td =a.wattage_label
+          td =a.usage_hourspday
+          td =a.rating
+
+=render 'layouts/footer'

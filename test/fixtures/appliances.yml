@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  model: MyString
+  wattage_label: 1
+  usage_hourspday: 2018-12-01 20:52:31
+
+two:
+  type: 
+  model: MyString
+  wattage_label: 1
+  usage_hourspday: 2018-12-01 20:52:31
