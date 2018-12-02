@@ -5,6 +5,10 @@ html, body{
   position: relative;
 }
 
+canvas#myChart{
+  height: 270px !important;
+  width: 400px !important;
+}
 .container-fluid{
   position:block;
   a.navbar-brand{
@@ -12,14 +16,22 @@ html, body{
     font-weight: 700;
   }
 }
+.container-fluid.top{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;}
 
 a.btn.btn-primary.add{
     float:right;
+    margin-top: 0.5em;
     margin-bottom: 1em;
+    margin-right: 0.5em;
     background-color: #57e597;
     border-color: #57e597;
 }
-
+a.btn.btn-primary.delete{
+    background-color: red;
+    border-color: red;
+}
 
 
 .navbar.navbar-expand-lg.navbar-light{
@@ -58,6 +70,8 @@ footer{
      display: inline;
    }
    h2, h3, h4, h5{
+     margin-left: 0.2em;
+     margin-right: 0.2em;
      display: inline;
    }
 

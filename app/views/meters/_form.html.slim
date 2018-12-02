@@ -1,0 +1,21 @@
+= form_for @meter do |f|
+  - if @meter.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@meter.errors.count, "error")} prohibited this meter from being saved:"
+      ul
+        - @meter.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :start_date
+    = f.date_select :start_date
+
+  .field
+    = f.label :end_date
+    = f.date_select :end_date
+
+  .field
+    = f.label :readings
+    = f.number_field :readings
+    
+  .actions = f.submit

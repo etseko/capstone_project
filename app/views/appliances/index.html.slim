@@ -2,34 +2,25 @@
 
 .container-fluid.top
   h1 Your appliances
+  /a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
+
+.container-fluid
+  -@appliances.each do |appliance|
+    .card
+      .card-header = appliance.category
+      .card-body
+        h5.card-title
+          h5 = appliance.brand
+          h5 = appliance.model
+
+        p.card-text
+          p Wattage label
+          p = appliance.wattage_label
+          p Estimate usage hours per day
+          p = appliance.usage_hourspday
+          p Efficientcy Rating
+          p = appliance.rating
+        h5 = link_to 'Edit', edit_appliance_path(appliance),class:"btn btn-primary"
+        h5 = link_to 'Destroy', appliance, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
   a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
-
-  table.table
-    thead
-      tr
-        th scope="col" Type
-        th scope="col" Model
-        th scope="col" Brand
-        th scope="col" Wattage
-        th scope="col" Approx. Usage Hours
-        th scope="col" Efficientcy rating
-        th scope="col"
-        th scope="col"
-
-    tbody
-    - @appliances.each do |appliance|
-      tr scope="row"
-        td = appliance.category
-        td = appliance.model
-        td = appliance.brand
-        td = appliance.wattage_label
-        td = appliance.usage_hourspday
-        td = appliance.rating
-        / td = link_to 'Show', appliance
-        td = link_to 'Edit', edit_appliance_path(appliance),class:"btn btn-primary"
-        td = link_to 'Destroy', appliance, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
-
-br
-
-/= link_to 'New Appliance', new_appliance_path
 = render 'layouts/footer'

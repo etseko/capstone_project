@@ -10,7 +10,6 @@ class AppliancesController < ApplicationController
   # GET /appliances/1
   # GET /appliances/1.json
   def show
-    @appliances = Appliance.all
   end
 
   # GET /appliances/new
@@ -20,6 +19,7 @@ class AppliancesController < ApplicationController
 
   # GET /appliances/1/edit
   def edit
+    @appliance= Appliance.find(params[:id])
   end
 
   # POST /appliances
@@ -54,13 +54,13 @@ class AppliancesController < ApplicationController
 
   # DELETE /appliances/1
   # DELETE /appliances/1.json
-#  def destroy
-#    @appliance.destroy
-#    respond_to do |format|
-#      format.html { redirect_to appliances_url, notice: 'Appliance was successfully destroyed.' }
-#      format.json { head :no_content }
-#    end
-#  end
+ def destroy
+    @appliance.destroy
+    respond_to do |format|
+      format.html { redirect_to appliances_url, notice: 'Appliance was successfully destroyed.' }
+      format.json { head :no_content }
+   end
+ end
 
   private
     # Use callbacks to share common setup or constraints between actions.

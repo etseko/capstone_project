@@ -1,0 +1,29 @@
+= render 'layouts/nav'
+
+.container-fluid.top
+  h1 Listing meters
+  a.btn.btn-primary.add href="/meters/new" role="button" New Meter Readings
+
+  table.table
+    thead
+      tr
+        th scope="col" Start date
+        th scope="col" End date
+        th scope="col" Readings
+        th scope="col"
+        th scope="col"
+
+    tbody
+    - @meters.each do |meter|
+      tr
+        td = meter.start_date
+        td = meter.end_date
+        td = meter.readings
+        /td = link_to 'Show', meter
+        td = link_to 'Edit', edit_meter_path(meter),class:"btn btn-primary"
+        td = link_to 'Destroy', meter, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
+
+br
+
+/= link_to 'New Meter', new_meter_path
+=render 'layouts/footer'
