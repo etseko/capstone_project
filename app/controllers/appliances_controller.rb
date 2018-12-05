@@ -41,25 +41,21 @@ class AppliancesController < ApplicationController
   # PATCH/PUT /appliances/1
   # PATCH/PUT /appliances/1.json
   def update
-    respond_to do |format|
+    @appliance = Appliance.find(params[:id])
       if @appliance.update(appliance_params)
-        format.html { redirect_to @appliance, notice: 'Appliance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @appliance }
+        redirect_to appliances_path, notice: 'Appliance was successfully updated.'
+        #format.json { render :show, status: :ok, location: @appliance }
       else
-        format.html { render :edit }
-        format.json { render json: @appliance.errors, status: :unprocessable_entity }
+        render :edit
+        #format.json { render json: @appliance.errors, status: :unprocessable_entity }
       end
-    end
   end
+
 
   # DELETE /appliances/1
   # DELETE /appliances/1.json
  def destroy
     @appliance.destroy
-    respond_to do |format|
-      format.html { redirect_to appliances_url, notice: 'Appliance was successfully destroyed.' }
-      format.json { head :no_content }
-   end
  end
 
   private

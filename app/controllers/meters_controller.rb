@@ -41,25 +41,21 @@ class MetersController < ApplicationController
   # PATCH/PUT /meters/1
   # PATCH/PUT /meters/1.json
   def update
-    respond_to do |format|
+    @meter = Meter.find(params[:id])
       if @meter.update(meter_params)
-        format.html { redirect_to @meter, notice: 'Meter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @meter }
+        redirect_to meters_path, notice: 'Meter was successfully updated.'
+        #format.json { render :show, status: :ok, location: @meter }
       else
-        format.html { render :edit }
-        format.json { render json: @meter.errors, status: :unprocessable_entity }
+        render :edit
+        #format.json { render json: @meter.errors, status: :unprocessable_entity }
       end
-    end
   end
+
 
   # DELETE /meters/1
   # DELETE /meters/1.json
   def destroy
     @meter.destroy
-    respond_to do |format|
-      format.html { redirect_to meters_url, notice: 'Meter was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
