@@ -1,14 +1,15 @@
 .container-fluid
   .nav.navbar.navbar-expand-lg.navbar-light
-    a.navbar-brand href="/index" Kilo-what
+    a = link_to "Kilo-what", root_path, :class =>"navbar-brand"
     button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
       span.navbar-toggler-icon
     div.collapse.navbar-collapse#navbarNavAltMarkup
       .navbar-nav
-        a.nav-item.nav-link.active href="/index" Home
-        a.nav-item.nav-link href="/appliances"Appliances
-
-        a.nav-item.nav-link href='/meters' Meters
+        a = link_to "Home" ,root_path , :class =>"nav-item nav-link active"
+        a =  link_to 'Appliances', appliances_path, :class=>"nav-item nav-link"
+        a =  link_to 'Meters', meters_path, :class=>"nav-item nav-link"
         a.nav-item.nav-link href="#" Profile
-        a.nav-item.nav-link href="#" Throphies
-        a.nav-item.nav-link href='/static_pages/about' About
+        a.nav-item.nav-link href="#" Trophies
+        a =  link_to 'About', static_pages_path, :class=>"nav-item nav-link"
+      /  a =  link_to 'Profile', ,:class=>"nav-item nav-link"
+      /  a =  link_to 'Trophies', , :class=>"nav-item nav-link"
