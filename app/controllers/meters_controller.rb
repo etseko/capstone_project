@@ -27,15 +27,13 @@ class MetersController < ApplicationController
   def create
     @meter = Meter.new(meter_params)
 
-    respond_to do |format|
       if @meter.save
-        format.html { redirect_to @meter, notice: 'Meter was successfully created.' }
-        format.json { render :show, status: :created, location: @meter }
+        redirect_to meters_path, notice: 'Meter was successfully created.'
+        #format.json { render :show, status: :created, location: @meter }
       else
-        format.html { render :new }
-        format.json { render json: @meter.errors, status: :unprocessable_entity }
+        render :new
+        #format.json { render json: @meter.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /meters/1

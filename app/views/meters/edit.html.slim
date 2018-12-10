@@ -1,10 +1,8 @@
-
 =render 'layouts/nav'
-h1 Editing meter
+.container-fluid.form
+  h1 Editing meter
 
-== render 'form'
+  == render 'form'
 
-/=> link_to 'Show', @meter
-=< link_to 'Back', meters_path
-
+  =< link_to 'Back', meters_path, :class=> 'back'
 =render 'layouts/footer'

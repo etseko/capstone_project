@@ -27,15 +27,13 @@ class AppliancesController < ApplicationController
   def create
     @appliance = Appliance.new(appliance_params)
 
-    respond_to do |format|
       if @appliance.save
-        format.html { redirect_to @appliance, notice: 'Appliance was successfully created.' }
-        format.json { render :show, status: :created, location: @appliance }
+        redirect_to appliances_path, notice: 'Appliance was successfully created.'
+        #format.json { render :show, status: :created, location: @appliance }
       else
-        format.html { render :new }
-        format.json { render json: @appliance.errors, status: :unprocessable_entity }
+        render :new
+        #format.json { render json: @appliance.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /appliances/1

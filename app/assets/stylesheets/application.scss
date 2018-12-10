@@ -4,10 +4,23 @@ html, body{
   height:100%;
   position: relative;
 }
-
-canvas#myChart{
-  height: 270px !important;
-  width: 400px !important;
+.score {
+  float: right;
+  margin-top: 1em;
+canvas.chart.chartjs-render-monitor#chart-0{
+  height: 75px !important;
+  width: 75px !important;
+  display: inline !important;
+  float: right !important;
+  margin-right: 3em;
+}
+}
+canvas.chart.chartjs-render-monitor#chart-1{
+  position: absolute;
+  height: 350px !important;
+  width: 500px !important;
+  display: inline !important;
+  right :32%;
 }
 .container-fluid{
   position:block;
@@ -20,6 +33,20 @@ canvas#myChart{
     margin-top: 0.5em;
     margin-bottom: 0.5em;}
 
+.container-fluid.form{
+
+  text-align: center;
+}
+
+form{
+  label{
+    margin: 0.5em;
+  }
+  input{
+    text-align: center;
+  }
+}
+
 a.btn.btn-primary.add{
     float:right;
     margin-top: 0.5em;
@@ -28,8 +55,44 @@ a.btn.btn-primary.add{
     background-color: #57e597;
     border-color: #57e597;
 }
+.btn.btn-primary.add:active{
+  background-color: #57e597;
+    border-color: #57e597;
+}
+.btn.btn-primary.add:hover{
+  background-color: #57e597;
+    border-color: #57e597;
+}
+.btn.btn-primary.add:focus{
+  background-color: #57e597;
+    border-color: #57e597;
+}
+ input.btn.btn-primary.add{
+   margin-top: 0.2em;
+   margin-bottom: 0.5em;
+   margin-right: 0.2em;
+   padding: 0.5em;
+  background-color: #57e597;
+    border-color: #57e597;
+ }
+
+ a.back{
+   color:#57e597;
+  }
 a.btn.btn-primary.delete{
     background-color: red;
+    border-color: red;
+}
+.btn.btn-primary.delete:active{
+  background-color: red;
+    border-color: red;
+}
+.btn.btn-primary.delete:hover{
+  background-color: red;
+    border-color: red;
+}
+.btn.btn-primary.delete:focus{
+  background-color: red;
     border-color: red;
 }
 
@@ -58,7 +121,7 @@ footer{
   //background-color: #eae8e4;
   position: absolute;
   top:30%;
-  height:270px;
+  height:350px;
   background-image: radial-gradient(#eae8e4, #ffffff);
 }
 .container-fluid{

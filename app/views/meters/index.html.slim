@@ -16,8 +16,8 @@
     tbody
     - @meters.each do |meter|
       tr
-        td = meter.start_date
-        td = meter.end_date
+        td = meter.start_date.strftime("%B %e, %Y")
+        td = meter.end_date.strftime("%B %e, %Y")
         td = meter.readings
         /td = link_to 'Show', meter
         td = link_to 'Edit', edit_meter_path(meter),class:"btn btn-primary"
