@@ -104,12 +104,22 @@ datasets: [{
       scales: {
           yAxes: [{
               ticks: { fontSize: 50,
-                 beginAtZero:true}
+                 beginAtZero:true},
+              scaleLabel: {
+                fontSize: 35,
+                display:true,
+                labelString: 'Usage'
+              }
               }],
 
           xAxes: [{
               ticks: { fontSize: 35,
-                 beginAtZero:true}
+                 beginAtZero:true},
+                 scaleLabel: {
+                   fontSize: 35,
+                   display:true,
+                   labelString: 'End date'
+                 }
               }]
           }
       }
