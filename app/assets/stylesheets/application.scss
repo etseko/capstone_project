@@ -34,11 +34,15 @@ canvas.chart.chartjs-render-monitor#chart-1{
     margin-bottom: 0.5em;}
 
 .container-fluid.form{
-
+  p{
+    margin-left: 1em;
+    margin-right: 1em;
+  }
   text-align: center;
 }
 
 form{
+
   label{
     margin: 0.5em;
   }
