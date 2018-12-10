@@ -109,10 +109,13 @@ div.before-footer{
   height:10em;
 }
 footer{
+  font-size: 14px;
+  text-align: right;
   width:100%;
   position: fixed;
   bottom: 0;
   background-image: linear-gradient(#ffffff, #57e597);
+  padding: 0.5em;
   //background-color: #57e597;
 }
 
