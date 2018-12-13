@@ -53,7 +53,9 @@ class AppliancesController < ApplicationController
   # DELETE /appliances/1
   # DELETE /appliances/1.json
  def destroy
+    @appliance = Appliance.find(params[:id])
     @appliance.destroy
+    redirect_to appliances_path, notice: 'Appliance was destroyed.'
  end
 
   private

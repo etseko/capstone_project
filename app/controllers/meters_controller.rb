@@ -53,7 +53,9 @@ class MetersController < ApplicationController
   # DELETE /meters/1
   # DELETE /meters/1.json
   def destroy
+    @meter = Meter.find(params[:id])
     @meter.destroy
+    redirect_to meters_path, notice: 'Meter was destroyed.'
   end
 
   private
