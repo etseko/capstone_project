@@ -2,14 +2,4 @@ p#notice = notice
 
 p
   strong Start date:
-  = @meter.start_date
-p
-  strong End date:
-  = @meter.end_date
-p
-  strong Readings:
-  = @meter.readings
-
-=> link_to 'Edit', edit_meter_path(@meter)
-'|
-=< link_to 'Back', meters_path
+  = @json_meter

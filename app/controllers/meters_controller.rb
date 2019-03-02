@@ -28,12 +28,18 @@ class MetersController < ApplicationController
     @meter = Meter.new(meter_params)
 
       if @meter.save
-        redirect_to meters_path, notice: 'Meter was successfully created.'
+        redirect_to meters_path, alert: 'Meter was successfully created.'
         #format.json { render :show, status: :created, location: @meter }
       else
         render :new
         #format.json { render json: @meter.errors, status: :unprocessable_entity }
       end
+  end
+
+  # POST /meters_auto
+  def create_auto
+    @json_meter = request.body.read
+    redirect_to meters_create_auto_path
   end
 
   # PATCH/PUT /meters/1

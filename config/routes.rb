@@ -5,8 +5,5 @@ Rails.application.routes.draw do
   root :to => 'home#index'
   get 'static_pages/about'
   get '/index', to: 'home#index'
-  #get 'meters/show', to: 'meters#show'
-  #get '/meters/new' , to: 'meters#new'
-  #post '/meters/new', to: 'meters#create'
-  #get 'appliances/show', to:'appliances#show'
+  post 'meters/create_auto', to: 'meters#create_auto'
 end
