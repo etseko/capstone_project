@@ -1,4 +1,5 @@
 class MetersController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create_auto]
   #before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   # GET /meters
@@ -38,8 +39,8 @@ class MetersController < ApplicationController
 
   # POST /meters_auto
   def create_auto
-    @json_meter = request.body.read
-    redirect_to meters_create_auto_path
+    @meter = Meter.create(meter_params)
+    render json: {status: 'ok'}, status: 201
   end
 
   # PATCH/PUT /meters/1
