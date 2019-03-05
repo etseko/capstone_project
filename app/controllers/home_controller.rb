@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @user = current_user
     @day = Time.now.strftime("%B %e, %Y")
     #@day = Date.today.to_s
 
