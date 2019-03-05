@@ -51,6 +51,11 @@ form{
   }
 }
 
+a.btn.btn-primary{
+    box-shadow:
+		0 1px 1px rgba(0,0,0,0.1),
+		inset 0 1px 0 rgba(255,255,255,0.6);
+}
 a.btn.btn-primary.add{
     float:right;
     margin-top: 0.5em;
@@ -58,6 +63,9 @@ a.btn.btn-primary.add{
     margin-right: 0.5em;
     background-color: #57e597;
     border-color: #57e597;
+    box-shadow:
+		0 1px 1px rgba(0,0,0,0.1),
+		inset 0 1px 0 rgba(255,255,255,0.6);
 }
 .btn.btn-primary.add:active{
   background-color: #57e597;
@@ -86,6 +94,9 @@ a.btn.btn-primary.add{
 a.btn.btn-primary.delete{
     background-color: red;
     border-color: red;
+    box-shadow:
+		0 1px 1px rgba(0,0,0,0.1),
+		inset 0 1px 0 rgba(255,255,255,0.6);
 }
 .btn.btn-primary.delete:active{
   background-color: red;
@@ -107,6 +118,10 @@ a.btn.btn-primary.delete{
     //background-color: #57e597;
     background-image: linear-gradient( #57e597, #ffffff);
     top: 0;
+}
+.nav-item.nav-link.right{
+  position: absolute;
+  right: 10px;
 }
 
 div.before-footer{
@@ -436,7 +451,85 @@ html.log {
 
 }
 
+.uid-box{
+  z-index: 1;
+  width: 360px;
+  position: absolute;
+  top: 50px;
+  right :35%;
+  margin: 0 auto 0 auto;
+  padding-top: 14px;
+  text-align: center;
+  border-radius: 5px;
+    box-shadow:
+    0 1px 1px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  cursor: default;
+  display: block;
+  background: #57e597;
+  border: 1px solid #57e597;
 
+  p {
+    color :white;
+    font-weight: bold;
+  }
+
+  #button{
+    border-radius: 5px;
+    background-color: white;
+    color: #57e597;
+    border: 1px solid #57e597;
+    box-shadow:
+		0 1px 1px rgba(0,0,0,0.1),
+		inset 0 1px 0 rgba(255,255,255,0.6);
+    margin-bottom: 10px;
+  }
+
+}
+
+.tn-box {
+  z-index: 1;
+	width: 360px;
+	position: absolute;
+  top: 50px;
+  right :35%;
+	margin: 0 auto 0 auto;
+	padding-top: 14px;
+	text-align: center;
+	border-radius: 5px;
+  box-shadow:
+  0 1px 1px rgba(0,0,0,0.1),
+  inset 0 1px 0 rgba(255,255,255,0.6);
+	opacity: 0;
+	cursor: default;
+	display: none;
+
+  p {
+    color :white;
+    font-weight: bold;
+  }
+}
+
+.tn-box-color-1{
+	background: #57e597;
+	border: 1px solid #57e597;
+}
+.tn-box.tn-box-active {
+	display: block;
+	animation: fadeOut 2s linear forwards;
+}
+
+@keyframes fadeOut {
+	0% 	{ opacity: 0; }
+	10% { opacity: 1; }
+	90% { opacity: 1; transform: translateY(0px);}
+	99% { opacity: 0; transform: translateY(-30px);}
+	100% { opacity: 0; }
+}
+
+.tn-box.tn-box-hoverpause:hover{
+	animation-play-state: paused;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
