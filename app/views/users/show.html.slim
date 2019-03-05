@@ -1,0 +1,22 @@
+=render 'layouts/nav'
+
+-unless notice == nil
+  -if notice == 'Your profile was successfully updated.'
+    .tn-box.tn-box-color-1.tn-box-active
+      p = notice
+  -else
+    .uid-box#HIDE
+      p = notice
+      <button onclick="myFunction()" id='button'> Close </button>
+
+
+
+
+h1 #{@user.email}
+h1 #{@user.name}
+h1 #{@user.surname}
+h1 #{@user.address}
+h1 #{@user.auth_token}
+= link_to 'Generate Uid', :action => :generateuid, :id => @user.id ,class:"btn btn-primary"
+= link_to 'Edit', edit_user_path(@user),class:"btn btn-primary"
+=render 'layouts/footer'

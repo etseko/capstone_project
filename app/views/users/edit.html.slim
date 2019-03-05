@@ -1,0 +1,8 @@
+=render 'layouts/nav'
+.container-fluid.form
+  h1 Edit Profile
+
+  == render 'form'
+
+  =< link_to 'Back', current_user, :class=> 'back'
+=render 'layouts/footer'
