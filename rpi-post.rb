@@ -4,14 +4,14 @@ require 'json'
 #create basic auth
 payload = {
 	meter: {
-		start_date: '2019-02-03',
-		end_date: '2019-03-03',
-		readings: '1000'
+		start_date: '2019-04-03',
+		end_date: '2019-05-03',
+		readings: '2000'
 	}
 }
 
 headers = {
-	content_type: :json, 
+	content_type: :json,
 	accept: :json,
 	authorization: 'Bearer adijsdoj3234ineinsdasndi3n4k4j3 jknjbabdskbasdas'
 }
