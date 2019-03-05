@@ -1,5 +1,9 @@
 =render 'layouts/nav'
 
+-if notice != nil
+  .tn-box.tn-box-color-1.tn-box-active
+    p = notice
+end
 .container-fluid.top
   h1 Your appliances
   /a.btn.btn-primary.add href="/appliances/new" role="button" New appliance

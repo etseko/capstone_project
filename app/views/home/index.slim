@@ -1,7 +1,11 @@
 =render 'layouts/nav'
 
+-if notice != nil
+  .tn-box.tn-box-color-1.tn-box-active
+    p = notice
+end
 .container-fluid
-  <h1> Hello,<h3> Eleana! </h3> </h1>
+  <h1> Hello,<h3> #{@user.name}! </h3> </h1>
   h5 Today is
     #{@day}
   .score
