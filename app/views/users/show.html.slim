@@ -1,3 +1,4 @@
+
 =render 'layouts/nav'
 
 -unless notice == nil
@@ -10,13 +11,13 @@
       <button onclick="myFunction()" id='button'> Close </button>
 
 
+.card-profile
+  = link_to(image_tag(@user.image.thumb.url, alt: 'Image', class: 'img-size'), @user.image.url, target: '_blank') if @user.image?
+  h1 #{@user.name}
+  h1 #{@user.surname}
+  p.title-profile #{@user.email}
+  p.title-profile #{@user.address}
+  = link_to 'Generate Uid', :action => :generateuid, :id => @user.id ,class:"btn btn-primary"
+  = link_to 'Edit', edit_user_path(@user),class:"profile"
 
-
-h1 #{@user.email}
-h1 #{@user.name}
-h1 #{@user.surname}
-h1 #{@user.address}
-h1 #{@user.auth_token}
-= link_to 'Generate Uid', :action => :generateuid, :id => @user.id ,class:"btn btn-primary"
-= link_to 'Edit', edit_user_path(@user),class:"btn btn-primary"
 =render 'layouts/footer'

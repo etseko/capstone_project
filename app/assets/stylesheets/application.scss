@@ -530,6 +530,49 @@ html.log {
 .tn-box.tn-box-hoverpause:hover{
 	animation-play-state: paused;
 }
+
+
+.card-profile {
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 1px;
+  padding-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  height: auto;
+  margin: auto;
+  top: 15%;
+  position: relative;
+  text-align: center;
+  font-family: arial;
+
+  img.img-size {
+    height:100px;
+    width: 100px;
+  }
+}
+
+.title-profile {
+  color: grey;
+  font-size: 18px;
+}
+
+a.profile {
+  border: none;
+  outline: 0;
+  display: block;
+  padding: 8px;
+  color: white;
+  background-color: #57e597;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  width: auto;
+}
+
+a.profile:hover {
+  opacity: 0.7;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
