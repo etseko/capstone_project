@@ -44,6 +44,8 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+#For image validation
+gem 'file_validators'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

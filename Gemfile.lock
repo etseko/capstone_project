@@ -99,6 +99,9 @@ GEM
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
+    file_validators (2.3.0)
+      activemodel (>= 3.2)
+      mime-types (>= 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     has_secure_token (1.0.0)
@@ -261,6 +264,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  file_validators
   has_secure_token
   jbuilder (~> 2.5)
   jquery-rails
