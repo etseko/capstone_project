@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
   @users = User.all
   end
@@ -32,7 +31,6 @@ def generateuid
   redirect_to current_user, notice: 'Your uid is: '+ @user_auth
 end
 
-
   private
 
     def set_access_token
@@ -48,7 +46,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:name, :surname, :email, :address,:auth_token, :image)
+      params.require(:user).permit(:name, :surname, :email, :address,:auth_token,:image)
     end
 
 end

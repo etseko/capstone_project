@@ -8,13 +8,21 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   #specifing to fit only height, in order to prevent incorrect ratio
   version :thumb do
-    process resize_to_fill: [nil, 200]
+    process resize_to_fill: [200, 200]
   end
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
 
+  #Control the format of the image
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
+
+  def content_type_whitelist
+    /image\//
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
