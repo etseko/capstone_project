@@ -5,7 +5,7 @@ class MetersController < ApplicationController
   # GET /meters
   # GET /meters.json
   def index
-    @meters = Meter.all
+    @meters = current_user.meters.all
   end
 
   # GET /meters/1
@@ -26,7 +26,7 @@ class MetersController < ApplicationController
   # POST /meters
   # POST /meters.json
   def create
-    @meter = Meter.new(meter_params)
+    @meter = Meter.new(meter_params.merge(user_id: current_user.id))
 
       if @meter.save
         redirect_to meters_path, alert: 'Meter was successfully created.'

@@ -4,7 +4,7 @@ class AppliancesController < ApplicationController
   # GET /appliances
   # GET /appliances.json
   def index
-    @appliances = Appliance.all
+    @appliances = current_user.appliances.all
   end
 
   # GET /appliances/1
@@ -25,7 +25,7 @@ class AppliancesController < ApplicationController
   # POST /appliances
   # POST /appliances.json
   def create
-    @appliance = Appliance.new(appliance_params)
+    @appliance = Appliance.new(appliance_params.merge(user_id: current_user.id))
 
       if @appliance.save
         redirect_to appliances_path, notice: 'Appliance was successfully created.'
