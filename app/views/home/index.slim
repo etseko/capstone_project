@@ -5,13 +5,24 @@
     p = notice
 end
 .container-fluid
-  <h1> Hello,<h3> #{@user.name}! </h3> </h1>
+  <h1> Hello,
+  -unless @user.name.empty?
+    <h3> #{@user.name}! </h3>
+  end
+  </h1>
   h5 Today is
     #{@day}
   .score
-    h5 Score:
-    = doughnut_chart @data_score
+    -if @data_score.nil?
+      h5 'You have not registered any appliances'
+    -else
+      h5 Score:
+      = doughnut_chart @data_score
+    end
 .container-fluid.charts
+- if !@data2.nil?
   = bar_chart @data2 , @options
-
+- else
+  = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary add"
+end
 = render 'layouts/footer'

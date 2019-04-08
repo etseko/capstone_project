@@ -9,6 +9,7 @@ end
   /a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
 
 .container-fluid
+-if !@appliances.empty?
   -@appliances.each do |appliance|
     .card
       .card-header = appliance.category
@@ -26,5 +27,9 @@ end
           p = appliance.rating
         h5 = link_to 'Edit', edit_appliance_path(appliance),class:"btn btn-primary"
         h5 = link_to 'Destroy', appliance, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
-  a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
+    end
+-else
+    h5 Click "New appliance" to register your appliances!
+end
+a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
 = render 'layouts/footer'
