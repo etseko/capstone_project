@@ -10,19 +10,20 @@ end
     <h3> #{@user.name}! </h3>
   end
   </h1>
-  h5 Today is
+  h4 Today is
     #{@day}
   .score
     -if @data_score.nil?
-      h5 'You have not registered any appliances'
+      h5 You have not registered any appliances
+      = link_to 'Add your appliances!', new_appliance_path, class: "btn btn-primary add"
     -else
-      h5 Score:
+      h5.title Score:
       = doughnut_chart @data_score
     end
 .container-fluid.charts
-- if !@data2.nil?
-  = bar_chart @data2 , @options
-- else
-  = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary add"
-end
+  - if !@data2.nil?
+    = bar_chart @data2 , @options
+  - else
+      = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary add"
+  end
 = render 'layouts/footer'

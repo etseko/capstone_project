@@ -1,6 +1,8 @@
 class MetersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create_auto]
-  #before_action :set_meter, only: [:show, :edit, :update, :destroy]
+  before_action only: [:create_auto] do
+    doorkeeper_authorize! :admin, :write
+  end  #before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   # GET /meters
   # GET /meters.json
@@ -39,7 +41,7 @@ class MetersController < ApplicationController
 
   # POST /meters_auto
   def create_auto
-    @meter = Meter.create(meter_params)
+    @meter = Meter.create(meter_params.merge(user_id: current_user.id))
     render json: {status: 'ok'}, status: 201
   end
 

@@ -85,6 +85,7 @@ when 5
 
 
         @options =  {
+          :id => "chart-1",
         scales: {
             yAxes: [{
                 ticks: { fontSize: 50,

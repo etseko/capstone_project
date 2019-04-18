@@ -6,7 +6,7 @@
 end
 .container-fluid.top
   h1 Listing meters
-  a.btn.btn-primary.add href="/meters/new" role="button" New Meter Readings
+  = link_to 'New Meter Readings', new_meter_path,class:"btn btn-primary add"
 -if !@meters.empty?
   table.table
     thead
@@ -23,7 +23,6 @@ end
         td = meter.start_date.strftime("%B %e, %Y")
         td = meter.end_date.strftime("%B %e, %Y")
         td = meter.readings
-        /td = link_to 'Show', meter
         td = link_to 'Edit', edit_meter_path(meter),class:"btn btn-primary"
         td = link_to 'Destroy', meter, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
 -else

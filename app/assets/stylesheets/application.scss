@@ -140,10 +140,9 @@ footer{
 
 
 .container-fluid.charts{
-  //background-color: #eae8e4;
   position: absolute;
   top:30%;
-  height:350px;
+  height:350px !important;
   background-image: radial-gradient(#eae8e4, #ffffff);
 }
 .container-fluid{
@@ -155,10 +154,15 @@ footer{
      color: #57e597;
      display: inline;
    }
-   h2, h3, h4, h5{
+   h2, h3, h4{
      margin-left: 0.2em;
      margin-right: 0.2em;
      display: inline;
+   }
+
+   h5 {
+     color: grey;
+
    }
 
 }
@@ -572,6 +576,24 @@ a.profile {
 
 a.profile:hover {
   opacity: 0.7;
+}
+.card{
+  .buttons{
+    align-items: center;
+    a.btn.btn-primary{
+      width: 80px;
+      margin: 10px;
+    }
+  }
+
+}
+
+label.label-color{
+  p{
+    padding: 0 5px;
+    color: white;
+    border-radius: 20%;
+  }
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

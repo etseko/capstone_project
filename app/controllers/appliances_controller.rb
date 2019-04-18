@@ -66,6 +66,6 @@ class AppliancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appliance_params
-      params.require(:appliance).permit(:category,:brand, :model, :wattage_label, :usage_hourspday, :rating)
+      params.require(:appliance).permit(:category,:brand, :model, :wattage_label, :usage_hourspday, :rating,:image)
     end
 end

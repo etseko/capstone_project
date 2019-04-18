@@ -6,30 +6,34 @@
 end
 .container-fluid.top
   h1 Your appliances
-  /a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
+  = link_to 'New appliance', new_appliance_path,class:"btn btn-primary add"
 
 .container-fluid
--if !@appliances.empty?
-  -@appliances.each do |appliance|
-    .card
-      .card-header = appliance.category
-      .card-body
-        h5.card-title
-          h5 = appliance.brand
-          h5 = appliance.model
-
-        p.card-text
-          p Wattage label
-          p = appliance.wattage_label
-          p Estimate usage hours per day
-          p = appliance.usage_hourspday.strftime("%T")
-          p Efficientcy Rating
-          p = appliance.rating
-        h5 = link_to 'Edit', edit_appliance_path(appliance),class:"btn btn-primary"
-        h5 = link_to 'Destroy', appliance, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
-    end
--else
-    h5 Click "New appliance" to register your appliances!
-end
-a.btn.btn-primary.add href="/appliances/new" role="button" New appliance
+  -if !@appliances.empty?
+    .container
+      .row
+        -@appliances.each do |appliance|
+          .col
+            .card
+              .card-header = appliance.category
+              .card-body
+                h5.card-title
+                  h5 = appliance.brand
+                  h5 = appliance.model
+                p.card-text
+                  = link_to(image_tag(appliance.image.thumb.url, alt: 'Image', class: 'img-size'), appliance.image.url, target: '_blank') if appliance.image?
+                  p Wattage label
+                  p = appliance.wattage_label
+                  p Estimate usage hours per day
+                  p = appliance.usage_hourspday.strftime("%T")
+                  p Efficientcy Rating
+                  label.label-color
+                    p = appliance.rating
+                  .buttons
+                    = link_to 'Edit', edit_appliance_path(appliance),class:"btn btn-primary"
+                    = link_to 'Destroy', appliance, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
+      end
+  -else
+      h5 Click "New appliance" to register your appliances!
+  end
 = render 'layouts/footer'
