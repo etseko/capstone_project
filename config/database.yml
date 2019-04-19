@@ -48,7 +48,12 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 
-production:
-  database: capstone_project_development
+
+production::
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: capstone_project_production
+  pool: 5
   username: eleana
-  password: <%= ENV['CAPSTONE_PROJECT_DATABASE_PASSWORD'] %>
+  password: pretty
