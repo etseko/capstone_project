@@ -9,7 +9,7 @@ class MetersController < ApplicationController
   # GET /meters
   # GET /meters.json
   def index
-    @meters = current_user.meters.all
+    @meters = current_user.meters.all.reverse
   end
 
   # GET /meters/1

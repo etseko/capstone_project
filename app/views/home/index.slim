@@ -15,7 +15,7 @@ end
   .score
     -if @data_score.nil?
       h5 You have not registered any appliances
-      = link_to 'Add your appliances!', new_appliance_path, class: "btn btn-primary add"
+      = link_to 'Add your appliances!', new_appliance_path, class: "btn btn-primary"
     -else
       h5.title Score:
       = doughnut_chart @data_score
@@ -24,6 +24,6 @@ end
   - if !@data2.nil?
     = bar_chart @data2 , @options
   - else
-      = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary add"
+      = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary"
   end
 = render 'layouts/footer'

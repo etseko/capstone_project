@@ -1,5 +1,4 @@
 = render 'layouts/nav'
-
 -if notice != nil
   .tn-box.tn-box-color-1.tn-box-active
     p = notice
@@ -7,28 +6,28 @@ end
 .container-fluid.top
   h1 Listing meters
   = link_to 'New Meter Readings', new_meter_path,class:"btn btn-primary add"
--if !@meters.empty?
-  table.table
-    thead
-      tr
-        th scope="col" Start date
-        th scope="col" End date
-        th scope="col" Readings
-        th scope="col"
-        th scope="col"
+  -if !@meters.empty?
+    table.table
+      thead
+        tr
+          th scope="col" Start date
+          th scope="col" End date
+          th scope="col" Readings
+          th scope="col"
+          th scope="col"
 
-    tbody
-    - @meters.each do |meter|
-      tr
-        td = meter.start_date.strftime("%B %e, %Y")
-        td = meter.end_date.strftime("%B %e, %Y")
-        td = meter.readings
-        td = link_to 'Edit', edit_meter_path(meter),class:"btn btn-primary"
-        td = link_to 'Destroy', meter, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
--else
-  h5 Click "New Meter Readings" to add your meters!
-end
-br
+      tbody
+      - @meters.each do |meter|
+        tr
+          td = meter.start_date.strftime("%B %e, %Y")
+          td = meter.end_date.strftime("%B %e, %Y")
+          td = meter.readings
+          td = link_to 'Edit', edit_meter_path(meter),class:"btn btn-primary"
+          td = link_to 'Destroy', meter, data: { confirm: 'Are you sure?' }, method: :delete,class:"btn btn-primary delete"
+  -else
+    h5 Click "New Meter Readings" to add your meters!
+  end
+  br
 
 /= link_to 'New Meter', new_meter_path
 =render 'layouts/footer'

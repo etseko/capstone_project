@@ -1,5 +1,4 @@
 =render 'layouts/nav'
-
 -if notice != nil
   .tn-box.tn-box-color-1.tn-box-active
     p = notice
@@ -15,18 +14,19 @@ end
         -@appliances.each do |appliance|
           .col
             .card
-              .card-header = appliance.category
+              .card-header
+                = appliance.category
               .card-body
                 h5.card-title
                   h5 = appliance.brand
-                  h5 = appliance.model
+                  h5.subheading = appliance.model
                 p.card-text
                   = link_to(image_tag(appliance.image.thumb.url, alt: 'Image', class: 'img-size'), appliance.image.url, target: '_blank') if appliance.image?
-                  p Wattage label
+                  p.heading Wattage label
                   p = appliance.wattage_label
-                  p Estimate usage hours per day
+                  p.heading Estimate usage hours per day
                   p = appliance.usage_hourspday.strftime("%T")
-                  p Efficientcy Rating
+                  p.heading Efficientcy Rating
                   label.label-color
                     p = appliance.rating
                   .buttons
