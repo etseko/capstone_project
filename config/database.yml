@@ -49,8 +49,6 @@ test:
 #
 
 production:
-  adapter: postgresql
-  encoding: utf8
   database: ENV['DATABASE_URL']
   username: eleana
   password: <%= ENV['CAPSTONE_PROJECT_DATABASE_PASSWORD'] %>
