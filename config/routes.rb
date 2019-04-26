@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   resources :appliances
   resources :static_pages
   root :to => 'home#index'
-  get 'static_pages/about'
-  get '/index', to: 'home#index'
-  get '/generateuid', to: 'users#generateuid'
 
 
 end

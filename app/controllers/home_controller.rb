@@ -2,6 +2,11 @@ class HomeController < ApplicationController
   def index
     @user = current_user
     @day = Time.now.strftime("%B %e, %Y")
+    @options1 = {
+      tooltips: {
+            enabled: false
+         }
+    }
 
     score = 0
     color = ''
@@ -57,6 +62,35 @@ class HomeController < ApplicationController
     end
 
 last5Meters = current_user.meters.last(5)
+@options =  {
+  legend: {
+      display: false
+         },
+  tooltips: {
+      enabled: false
+         },
+scales: {
+    yAxes: [{
+        ticks: { fontSize: 30,
+           beginAtZero:true},
+        scaleLabel: {
+          fontSize: 35,
+          display:true,
+          labelString: 'Usage'
+        }
+        }],
+
+    xAxes: [{
+        ticks: { fontSize: 30,
+           beginAtZero:true},
+           scaleLabel: {
+             fontSize: 35,
+             display:true,
+             labelString: 'End date'
+           }
+        }]
+    }
+}
 case last5Meters.size
 when nil
   @data2 = nil
@@ -83,36 +117,11 @@ when 5
   }]
   }
 
-
-        @options =  {
-          :id => "chart-1",
-        scales: {
-            yAxes: [{
-                ticks: { fontSize: 50,
-                   beginAtZero:true},
-                scaleLabel: {
-                  fontSize: 35,
-                  display:true,
-                  labelString: 'Usage'
-                }
-                }],
-
-            xAxes: [{
-                ticks: { fontSize: 35,
-                   beginAtZero:true},
-                   scaleLabel: {
-                     fontSize: 35,
-                     display:true,
-                     labelString: 'End date'
-                   }
-                }]
-            }
-        }
   when 4
     @data2 = {
-    labels: [last5Meters[0].end_date,last5Meters[1].end_date, last5Meters[2].end_date, last5Meters[3].end_date],
+    labels: [last5Meters[0].end_date,last5Meters[1].end_date, last5Meters[2].end_date, last5Meters[3].end_date,"N/A"],
     datasets: [{
-        data: [last5Meters[0].readings,last5Meters[1].readings, last5Meters[2].readings, last5Meters[3].readings],
+        data: [last5Meters[0].readings,last5Meters[1].readings, last5Meters[2].readings, last5Meters[3].readings,0],
         backgroundColor: [
             'rgba(255, 99, 132, 0.7)',
             'rgba(54, 162, 235, 0.7)',
@@ -128,37 +137,12 @@ when 5
         borderWidth: 1
     }]
     }
-
-
-          @options =  {
-          scales: {
-              yAxes: [{
-                  ticks: { fontSize: 50,
-                     beginAtZero:true},
-                  scaleLabel: {
-                    fontSize: 35,
-                    display:true,
-                    labelString: 'Usage'
-                  }
-                  }],
-
-              xAxes: [{
-                  ticks: { fontSize: 35,
-                     beginAtZero:true},
-                     scaleLabel: {
-                       fontSize: 35,
-                       display:true,
-                       labelString: 'End date'
-                     }
-                  }]
-              }
-          }
   when 3
 
     @data2 = {
-    labels: [last5Meters[0].end_date,last5Meters[1].end_date, last5Meters[2].end_date],
+    labels: [last5Meters[0].end_date,last5Meters[1].end_date, last5Meters[2].end_date,"N/A","N/A"],
     datasets: [{
-        data: [last5Meters[0].readings,last5Meters[1].readings, last5Meters[2].readings],
+        data: [last5Meters[0].readings,last5Meters[1].readings, last5Meters[2].readings,0,0],
         backgroundColor: [
             'rgba(255, 99, 132, 0.7)',
             'rgba(54, 162, 235, 0.7)',
@@ -173,36 +157,12 @@ when 5
     }]
     }
 
-
-          @options =  {
-          scales: {
-              yAxes: [{
-                  ticks: { fontSize: 50,
-                     beginAtZero:true},
-                  scaleLabel: {
-                    fontSize: 35,
-                    display:true,
-                    labelString: 'Usage'
-                  }
-                  }],
-
-              xAxes: [{
-                  ticks: { fontSize: 35,
-                     beginAtZero:true},
-                     scaleLabel: {
-                       fontSize: 35,
-                       display:true,
-                       labelString: 'End date'
-                     }
-                  }]
-              }
-          }
   when 2
 
     @data2 = {
-    labels: [last5Meters[0].end_date,last5Meters[1].end_date],
+    labels: [last5Meters[0].end_date,last5Meters[1].end_date,"N/A","N/A","N/A"],
     datasets: [{
-        data: [last5Meters[0].readings,last5Meters[1].readings],
+        data: [last5Meters[0].readings,last5Meters[1].readings,0,0,0],
         backgroundColor: [
             'rgba(255, 99, 132, 0.7)',
             'rgba(54, 162, 235, 0.7)'
@@ -214,36 +174,12 @@ when 5
     }]
     }
 
-
-          @options =  {
-          scales: {
-              yAxes: [{
-                  ticks: { fontSize: 50,
-                     beginAtZero:true},
-                  scaleLabel: {
-                    fontSize: 35,
-                    display:true,
-                    labelString: 'Usage'
-                  }
-                  }],
-
-              xAxes: [{
-                  ticks: { fontSize: 35,
-                     beginAtZero:true},
-                     scaleLabel: {
-                       fontSize: 35,
-                       display:true,
-                       labelString: 'End date'
-                     }
-                  }]
-              }
-          }
   when 1
 
     @data2 = {
-    labels: [last5Meters[0].end_date],
+    labels: [last5Meters[0].end_date,"N/A","N/A","N/A","N/A"],
     datasets: [{
-        data: [last5Meters[0].readings],
+        data: [last5Meters[0].readings,0,0,0,0],
         backgroundColor: [
             'rgba(255, 99, 132, 0.7)'
         ],
@@ -253,30 +189,6 @@ when 5
     }]
     }
 
-
-          @options =  {
-          scales: {
-              yAxes: [{
-                  ticks: { fontSize: 50,
-                     beginAtZero:true},
-                  scaleLabel: {
-                    fontSize: 35,
-                    display:true,
-                    labelString: 'Usage'
-                  }
-                  }],
-
-              xAxes: [{
-                  ticks: { fontSize: 35,
-                     beginAtZero:true},
-                     scaleLabel: {
-                       fontSize: 35,
-                       display:true,
-                       labelString: 'End date'
-                     }
-                  }]
-              }
-          }
   end
   end
 

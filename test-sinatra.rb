@@ -5,78 +5,50 @@ require 'oauth2'
 
 
 
-app_id = 'cf36a8d5ce6d92515364f7a9db321af0514fc3da8cba932732b116acc4c05f04'
-secret = '723c4c2d94cfe8be7bbb2b337b36e861443992c02fd2db3fb3bc52476bcb94bd'
+APP_ID = 'WJ7jOngcxrEto7RsRN3mgstxCka5_juRl3fl6-P5DNE'
+APP_SECRET = 'Jdt8mB1oieZ81LvNoWW4Lki4k0qQdCk5cLycWNWPjkQ'
 
-callback = 'http://localhost:4567/callback'
+CALLBACK_URI = URI('http://localhost:4567/callback')
 
+auth_code = File.read('auth_code') if File.exists?('auth_code')
 
-client = OAuth2::Client.new(app_id, secret, site: "http://localhost:3000/meters/create_auto")
-request_authorization_uri = client.auth_code.authorize_url(redirect_uri: callback)
+CLIENT = OAuth2::Client.new(APP_ID, APP_SECRET, site: "http://localhost:3000/")
 
-code = ''
+get '/register' do
+  scope = params[:scope] || 'read write'
+  redirect CLIENT.auth_code.authorize_url(redirect_uri: CALLBACK_URI, scope: scope)
+end
 
-if(code.empty?)
-
-  get '/register/001' do
-    redirect client.auth_code.authorize_url(redirect_uri: callback)
+get '/callback' do
+  if params[:error]
+    erb :callback_error, layout: !request.xhr?
+  else
+    File.write('auth_code', params[:code])
+    new_token = CLIENT.auth_code.get_token(params[:code], redirect_uri: CALLBACK_URI)
+    File.write('auth_token', new_token.token)
+    redirect '/'
   end
+end
 
-  get "/callback" do
-    code = params["code"]
-    redirect "/authorized"
-  end
+get '/' do
+  'successfully registered'
+end
 
-  get "/authorized" do
-    "Your Smart Meter has been authorized!"
-  end
-
-  get "/code" do
-    "code = " + code
-  end
-
-  get '/send_meters' do
-    access = client.auth_code.get_token(code, redirect_uri: callback)
-    token = access.token
-    payload = {
-	     meter: {
-		       start_date: '2018-5-4',
-		       end_date: '2018-6-4',
-		       readings: '1999',
-           user_id: '1'
-	    }
+get '/send_meters' do
+  redirect '/register' unless auth_code.chomp
+  token = File.read('auth_token') if File.exists?('auth_token')
+  payload = {
+    meter: {
+      start_date: '2018-5-4',
+      end_date: '2018-6-4',
+      readings: '1999'
     }
-    headers = {
-	     content_type: :json,
-	     accept: :json,
-	     authorization: 'Bearer '+token
-    }
+  }
+  headers = {
+    content_type: :json,
+    accept: :json,
+    authorization: 'Bearer '+token
+  }
 
-    RestClient.post("http://localhost:3000/meters/create_auto", JSON.pretty_generate(payload),headers)
-  end
-
-else
-
-  get "/register/001" do
-    redirect "/already_authorized"
-  end
-
-  get "/already_authorized" do
-    "Your Smart Meter has already been authorized"
-  end
-
-  get "/callback" do
-    code = params["code"]
-    redirect "/authorized"
-  end
-
-  get "/authorized" do
-    "Your Smart Meter has been authorized!"
-  end
-
-  get "/code" do
-    "code = " + code
-  end
-
-
+  RestClient.post("http://localhost:3000/meters/create_auto", JSON.pretty_generate(payload),headers)
 end

@@ -1,12 +1,10 @@
-=render 'layouts/nav'
-
 -if notice != nil
   .tn-box.tn-box-color-1.tn-box-active
     p = notice
 end
 .container-fluid
   <h1> Hello,
-  -unless @user.name.empty?
+  -unless @user.name.blank?
     <h3> #{@user.name}! </h3>
   end
   </h1>
@@ -18,7 +16,7 @@ end
       = link_to 'Add your appliances!', new_appliance_path, class: "btn btn-primary"
     -else
       h5.title Score:
-      = doughnut_chart @data_score
+      = doughnut_chart @data_score, @options1
     end
 .container-fluid.charts
   - if !@data2.nil?
@@ -26,4 +24,3 @@ end
   - else
       = link_to 'Click here to start adding your meters!', new_meter_path, class: "btn btn-primary"
   end
-= render 'layouts/footer'

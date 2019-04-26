@@ -1,18 +1,14 @@
 .container-fluid
   .nav.navbar.navbar-expand-lg.navbar-light
-    a = link_to "Kilo-what", root_path, :class =>"navbar-brand"
+    = link_to "Kilo-what", root_path, :class =>"navbar-brand"
     button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
       span.navbar-toggler-icon
     div.collapse.navbar-collapse#navbarNavAltMarkup
       .navbar-nav
-        a = link_to "Home" ,root_path , :class =>"nav-item nav-link active"
-        a =  link_to 'Appliances', appliances_path, :class=>"nav-item nav-link"
-        a =  link_to 'Meters', meters_path, :class=>"nav-item nav-link"
-        /a.nav-item.nav-link href="#" Profile
-        a =  link_to 'Profile', current_user,:class=>"nav-item nav-link"
+        = link_to "Home" ,root_path , :class =>"nav-item nav-link active"
+        =  link_to 'Appliances', appliances_path, :class=>"nav-item nav-link"
+        =  link_to 'Meters', meters_path, :class=>"nav-item nav-link"
+        =  link_to 'Profile', current_user,:class=>"nav-item nav-link"
         a.nav-item.nav-link href="#" Trophies
-        a =  link_to 'About', static_pages_path, :class=>"nav-item nav-link"
-        a = link_to 'Log out', destroy_user_session_path, method: :delete, :class=>"nav-item nav-link right"
-        //change the lof out to be on the right side
-      /  a =  link_to 'Profile', ,:class=>"nav-item nav-link"
-      /  a =  link_to 'Trophies', , :class=>"nav-item nav-link"
+        =  link_to 'About', static_pages_path, :class=>"nav-item nav-link"
+        = link_to 'Log out', destroy_user_session_path, method: :delete, :class=>"nav-item nav-link right"

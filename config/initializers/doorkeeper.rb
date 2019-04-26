@@ -21,7 +21,7 @@ Doorkeeper.configure do
   #   else
   #     redirect_to sign_in_url
   #   end
-   user = User.find_by_id(session[:user_id])
+    user = User.find_by_id(session[:user_id])
    #(user || redirect_to(new_admin_session_url)) && user.may_access_admin?
 
    end

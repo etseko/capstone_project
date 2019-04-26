@@ -31,7 +31,7 @@ get '/callback' do
 end
 
 get '/' do
-  'Hello'
+  'successfully registered'
 end
 
 get '/send_meters' do

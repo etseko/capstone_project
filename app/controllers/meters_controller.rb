@@ -33,7 +33,7 @@ class MetersController < ApplicationController
     @meter = Meter.new(meter_params.merge(user_id: current_user.id))
 
       if @meter.save
-        redirect_to meters_path, alert: 'Meter was successfully created.'
+        redirect_to meters_path, notice: 'Meter was successfully created.'
         #format.json { render :show, status: :created, location: @meter }
       else
         render :new
@@ -44,7 +44,7 @@ class MetersController < ApplicationController
   # POST /meters_auto
   def create_auto
     @meter = Meter.create(meter_params.merge(user_id: current_resource_owner.id))
-    render json: {status: 'ok'}, status: 201
+    render json: {status: 'meter reading registered'}, status: 201
   end
 
   # PATCH/PUT /meters/1

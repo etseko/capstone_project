@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_15_150604) do
+ActiveRecord::Schema.define(version: 2019_04_24_131743) do
 
   create_table "appliances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "model"
@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 2019_04_15_150604) do
     t.bigint "user_id"
     t.string "image"
     t.index ["user_id"], name: "index_appliances_on_user_id"
-  end
-
-  create_table "meter_readings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.integer "readings"
   end
 
   create_table "meters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,9 +89,7 @@ ActiveRecord::Schema.define(version: 2019_04_15_150604) do
     t.string "name"
     t.string "surname"
     t.string "address"
-    t.string "auth_token"
     t.string "image"
-    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

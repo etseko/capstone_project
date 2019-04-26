@@ -1,5 +1,3 @@
-=render 'layouts/nav'
-
 -unless notice == nil
   .tn-box.tn-box-color-1.tn-box-active
     p = notice
@@ -12,5 +10,3 @@
   p.title-profile #{@user.email}
   p.title-profile #{@user.address}
   = link_to 'Edit', edit_user_path(@user),class:"profile"
-
-=render 'layouts/footer'
